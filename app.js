@@ -1,6 +1,10 @@
+// Variables that I used to increase the score(humanscore) and reset the score(humanSelection)
 let humanSelection = 0;
 let computerSelection = 0;
+let humanScore = 0;
+let computerScore = 0;
 
+//fn that gets the human choice now matter how it's written and gives and error(retry) if anything else is choses
 function getHumanChoice() {
   let input = prompt("Choose: Rock, Paper or Scissors");
   if (!input) return "Null";
@@ -18,6 +22,7 @@ function getHumanChoice() {
   }
 }
 
+//fn that randomly chooses an option
 function getComputerChoice() {
   let choice;
   let randomNumber = Math.floor(Math.random() * 99);
@@ -31,6 +36,7 @@ function getComputerChoice() {
   return choice;
 }
 
+//fn that compares the choices and increases the 4 variables set in the beginning
 function playRound(human, computer) {
   if (human === computer) {
     return null;
@@ -57,9 +63,7 @@ function playRound(human, computer) {
   }
 }
 
-let humanScore = 0;
-let computerScore = 0;
-
+//fn that checks which of the who won the round and resets the computerSelection variable for the next round to play while increasing the computerScore variable to keep track of the score
 function score() {
   if (humanSelection > computerSelection) {
     humanSelection--;
@@ -74,6 +78,7 @@ function score() {
   }
 }
 
+//fn plays the game 5 times and calls all the other fns
 function playGame() {
   for (let x = 1; x <= 5; x++) {
     let human = getHumanChoice();
